@@ -5,10 +5,10 @@
 #include"../Manager/Generic/InputManager.h"
 #include"../Manager/Generic/InputManagerS.h"
 #include"../Utility/Utility3D.h"
-
+#include"./InputBase.h"
 //#define DEBUG_ON
 class PlayerBase;
-class PlayerInput
+class PlayerInput:public InputBase
 {
 public:
     //*************************************************
@@ -60,19 +60,19 @@ public:
     //デルタタイム
     static constexpr float DELTA_TIME = 1.0f / 60.0f;
 
-    //アクションボタンの種類
-    enum class ACT_CNTL
-    {
-        NONE            //何もしていないとき
-        , MOVE          //移動
-        , DASHMOVE      //ダッシュ
-        , PUNCH         //パンチ
-        , JUMP          //ジャンプ
-        , CARD_CHARGE   //カードチャージ
-        ,_CARD_USE      //カード使用
-        ,CARD_MOVE_LEFT //カード左
-        ,CARD_MOVE_RIGHT//カード右
-    };
+    ////アクションボタンの種類
+    //enum class ACT_CNTL
+    //{
+    //    NONE            //何もしていないとき
+    //    , MOVE          //移動
+    //    , DASHMOVE      //ダッシュ
+    //    , PUNCH         //パンチ
+    //    , JUMP          //ジャンプ
+    //    , CARD_CHARGE   //カードチャージ
+    //    ,_CARD_USE      //カード使用
+    //    ,CARD_MOVE_LEFT //カード左
+    //    ,CARD_MOVE_RIGHT//カード右
+    //};
 
     enum class CNTL
     {
@@ -85,12 +85,12 @@ public:
     ~PlayerInput(void) = default;
 
     //変更時の初期化
-    void Init(void);
+	void Init(void)override;
 
-    void Update(void);
+    void Update(void)override;
 
-    //コントロール判定
-    bool CheckAct(ACT_CNTL _actCntl) { return actCntl_ == _actCntl ? true : false; }
+    ////コントロール判定
+    //bool CheckAct(ACT_CNTL _actCntl) { return actCntl_ == _actCntl ? true : false; }
 #ifdef _DEBUG
 #endif // _DEBUG_ON
 
@@ -113,9 +113,6 @@ private:
 
     //メンバ変数
     //-----------------------------------------------------------------------
-    //操作管理用
-    ACT_CNTL actCntl_;
-
     float leftStickX_;          //スティックの角度X
     float leftStickY_;          //スティックの角度Y
 

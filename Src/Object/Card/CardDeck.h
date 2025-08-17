@@ -35,7 +35,9 @@ public:
 	void AddDrawPile(const int _pow);
 private:
 	//メンバ関数
+	//カードを選択したときの制限
 	void CardMoveLimit(void);
+
 	//札関連
 	//山札
 	//std::vector<std::unique_ptr<CardBase>>drawPile_;

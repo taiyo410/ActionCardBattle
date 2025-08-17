@@ -22,7 +22,7 @@ bool Application::Init()
 {
 
 	// アプリケーションの初期設定
-	SetWindowText(L"BaseProject.ver1.2");
+	SetWindowText(L"ActionCardBattle");
 
 	// ウィンドウサイズ
 	SetGraphMode(SCREEN_SIZE_X, SCREEN_SIZE_Y, 32);

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Object\Player\Process\InputBase.cpp" />
+    <ClCompile Include="Src\Object\Card\CardSystem.cpp" />
     <ClCompile Include="Src\Object\Card\CardDeck.cpp" />
     <ClCompile Include="Src\Object\Card\CardBase.cpp" />
     <ClCompile Include="Src\Common\Vector2F.cpp" />
@@ -56,6 +58,8 @@
     <ClCompile Include="Src\Utility\UtilityDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Object\Player\Process\InputBase.h" />
+    <ClInclude Include="Src\Object\Card\CardSystem.h" />
     <ClInclude Include="Src\Object\Card\CardDeck.h" />
     <ClInclude Include="Src\Object\Card\CardBase.h" />
     <ClInclude Include="Src\Common\Vector2F.h" />
