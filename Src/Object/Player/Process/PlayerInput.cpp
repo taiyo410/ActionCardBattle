@@ -15,6 +15,10 @@ PlayerInput::PlayerInput(InputManager::JOYPAD_NO _padNum, InputManager::CONTROLL
 	inputUpdates_[InputManager::CONTROLL_TYPE::CONTROLLER] = [this]() {InputPad(); };
 }
 
+PlayerInput::~PlayerInput(void)
+{
+}
+
 void PlayerInput::Init(void)
 {
 	actCntl_ = ACT_CNTL::NONE;

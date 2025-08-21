@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include<memory>
+#include "../../Common/Vector2.h"
 class CardBase;
 class CardDeck
 {
@@ -9,7 +10,7 @@ public:
 	static constexpr int CARD_NUM_MAX = 20;
 	static constexpr int CARD_POWS[20] = {0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9};
 	//static constexpr int CARD_POWS[20] = {0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9};
-	CardDeck(void);
+	CardDeck(Vector2& _centerPos);
 	~CardDeck(void);
 
 	//初期化
@@ -56,5 +57,8 @@ private:
 	int nextNum_;
 	//ひとつ前
 	int prevNum_;
+
+	//現在選択中のカード中心座標
+	Vector2& centerPos_;
 };
 

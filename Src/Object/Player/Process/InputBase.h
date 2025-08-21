@@ -16,6 +16,9 @@ public:
         , CARD_MOVE_LEFT //カード左
         , CARD_MOVE_RIGHT//カード右
     };
+
+    InputBase(void);
+	virtual ~InputBase(void);
     //変更時の初期化
     virtual void Init(void) = 0;
 

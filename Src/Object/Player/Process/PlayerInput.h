@@ -82,7 +82,7 @@ public:
     };
     //シングルトン化するために外部で生成されないようにする
     PlayerInput(InputManager::JOYPAD_NO _padNum, InputManager::CONTROLL_TYPE _cntl);
-    ~PlayerInput(void) = default;
+    ~PlayerInput(void)override;
 
     //変更時の初期化
 	void Init(void)override;

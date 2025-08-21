@@ -2,7 +2,12 @@
 #include "CardBase.h"
 #include "CardDeck.h"
 
-CardDeck::CardDeck(void)
+CardDeck::CardDeck(Vector2& _centerPos):
+	drawPile_(),
+	currentNum_(0),
+	nextNum_(0),
+	prevNum_(0),
+	centerPos_(_centerPos)
 {
 	currentNum_ = 0;
 	nextNum_ = 0;
@@ -20,10 +25,11 @@ void CardDeck::Init(void)
 	//	std::unique_ptr<CardBase> card = std::make_unique<CardBase>(CARD_POWS[i]);
 	//	drawPile_.emplace_back(std::move(card));
 	//}
-	drawPile_[0]->GetPow();
 	currentNum_ = 0;
 	nextNum_ = currentNum_ + 1;
 	prevNum_ = CARD_NUM_MAX - 1;
+
+	Vector2 pos = centerPos_;
 }
 
 void CardDeck::CardUse(void)
@@ -69,9 +75,12 @@ void CardDeck::Draw(void)
 	int currentCardPow = drawPile_[currentNum_]->GetPow();
 	int nextCardPow = drawPile_[nextNum_]->GetPow();
 	int prevCardPow = drawPile_[prevNum_]->GetPow();
-	DrawFormatString(100, 140, 0xffffff,L"(%d)", prevCardPow);
-	DrawFormatString(140, 140, 0xffffff,L"(%d)", currentCardPow);
-	DrawFormatString(180, 140, 0xffffff,L"(%d)", nextCardPow);
+
+	const float DISTANCE_X = 40;
+
+	DrawFormatString(centerPos_.x-DISTANCE_X, centerPos_.y, 0xffffff,L"(%d)", prevCardPow);
+	DrawFormatString(centerPos_.x, centerPos_.y, 0xffffff,L"(%d)", currentCardPow);
+	DrawFormatString(centerPos_.x + DISTANCE_X, centerPos_.y, 0xffffff,L"(%d)", nextCardPow);
 }
 
 void CardDeck::Release(void)

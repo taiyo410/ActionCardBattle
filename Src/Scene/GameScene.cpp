@@ -6,6 +6,9 @@
 #include "../Manager/Generic/InputManager.h"
 #include "../Manager/Resource/ResourceManager.h"
 #include "../Manager/Resource/FontManager.h"
+
+#include"../Object/Enemy/Enemy.h"	
+
 #include "PauseScene.h"
 
 GameScene::GameScene(void)
@@ -34,11 +37,15 @@ void GameScene::Load(void)
 
 	PlayerManager::CreateInstance();
 	PlayerManager::GetInstance().Load();
+
+	enemy_ = std::make_unique<Enemy>();
+	enemy_->Load();
 }
 
 void GameScene::Init(void)
 {
 	PlayerManager::GetInstance().Init();
+	enemy_->Init();
 }
 
 void GameScene::NormalUpdate(void)
@@ -52,7 +59,7 @@ void GameScene::NormalUpdate(void)
 	
 	//プレイヤーの更新
 	PlayerManager::GetInstance().Update();
-
+	enemy_->Update();
 	//デバッグ処理
 	DebagUpdate();
 }
@@ -64,6 +71,7 @@ void GameScene::NormalDraw(void)
 
 	//プレイヤーの描画
 	PlayerManager::GetInstance().Draw();
+	enemy_->Draw();
 }
 
 void GameScene::ChangeNormal(void)

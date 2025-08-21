@@ -85,11 +85,6 @@ public:
 	//プレイヤーの角度Y
 	const Quaternion GetPlayerRotY(void) { return playerRotY_; }
 
-	//パンチ座標
-	const VECTOR& GetPunchPos(void) { return punchPos_; }
-
-	//パンチ中か
-	bool GetIsHitPunch(void) { return isPunchHitTime_; }
 
 	//ジャンプ中
 	const bool GetIsJump(void) { return isJump_; }
@@ -240,7 +235,7 @@ private:
 
 	//山札(デッキクラスに格納用)
 	std::vector<std::shared_ptr<CardBase>>drawPile_;
-
+	Vector2 cardCenterPos_;	//カードの位置
 	//-------------------------------------------------
 	//メンバ関数
 	//-------------------------------------------------
@@ -286,7 +281,7 @@ private:
 	bool CheckJumpInput(void);
 
 	//カードデッキ
-	std::unique_ptr<CardDeck>deck_;
+	std::shared_ptr<CardDeck>deck_;
 
 	/// <summary>
 	/// 再生させたいSE以外すべて止める

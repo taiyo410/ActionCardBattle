@@ -28,6 +28,9 @@ public:
 	static constexpr float RADIUS = 25.0f;
 	//デフォルトのアニメーションスピード
 	static constexpr float DEFAULT_ANIM_SPD = 60.0f;
+
+	//格納するカードの強さ
+	static constexpr int CARD_POWS[20] = { 0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9 };
 	//******************************************
 
 
